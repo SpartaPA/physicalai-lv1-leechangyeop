@@ -4,7 +4,7 @@
   
 ### 1. 수동 2단계 빌드 명령 (터미널 입력)
 
-```
+```console
 g++ -Wall -std=c++17 -c motor.cpp -o motor.o
 g++ -Wall -std=c++17 -c main.cpp -o main.o
 
@@ -18,7 +18,7 @@ Motor speed: 50
 
 링크 에러
 
-```
+```console
 pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/cpp_basics$ g++ main.o -o motor_test
 /usr/bin/ld: main.o: in function `main':
 main.cpp:(.text+0x24): undefined reference to `Motor::Motor()'
@@ -29,7 +29,7 @@ collect2: error: ld returned 1 exit status
 
 컴파일 에러 
 
-```
+```console
 pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/cpp_basics$ g++ -Wall -std=c++17 -c motor.cpp -o motor.o
 motor.cpp:7:2: error: stray ‘`’ in program
     7 | 1`
@@ -44,7 +44,7 @@ motor.cpp:7:1: error: expected unqualified-id before numeric constant
 
 ### 3. CMake 빌드 출력 (터미널 출력)
 
-```
+```console
 pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/cpp_basics/build$ cmake ..
 -- The C compiler identification is GNU 11.4.0
 -- The CXX compiler identification is GNU 11.4.0
@@ -74,7 +74,7 @@ pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/cpp_basics/build$ make
 
 ### 4. 증분 빌드 시 재컴파일된 파일: ___ — 판단 근거
 
-```
+```console
 pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/cpp_basics/build$ make
 Consolidate compiler generated dependencies of target motor_test
 [ 33%] Building CXX object CMakeFiles/motor_test.dir/motor.cpp.o
@@ -89,7 +89,7 @@ Consolidate compiler generated dependencies of target motor_test
 ## 문제 2
 ### 1. 다형성 루프 출력
 
-```
+```console
 ===== 다형성 Test =====
 Lidar Constructor
 Imu Constructor
@@ -99,7 +99,7 @@ Imu Constructor
 ```
 
 ### 2. 스택 객체와 힙 객체의 소멸 시점 — 관찰 로그와 설명
-```
+```console
 ===== 객체 생성 =====
 Lidar 생성
 Imu 생성
@@ -123,7 +123,7 @@ Sensor destructor
 파생 객체가 보유한 자원이 제대로 해제되지 않을 수 있다.
 
 ### 4. count_if 결과: 0.5 이내 기록 ___ 개
-```
+```console
 ===== count_if Test =====
 0.5 이내의 측정 기록: 3개
 ```
@@ -132,7 +132,7 @@ Sensor destructor
 
 - 누수 검출 결과
   
-```
+```console
 pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/cpp_basics/sensors$ g++ -std=c++17 -fsanitize=address -g *.cpp -o main
 pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/cpp_basics/sensors$ ./main
 ===== 다형성 Test =====
@@ -188,7 +188,7 @@ SUMMARY: AddressSanitizer: 8 byte(s) leaked in 1 allocation(s).
 
 - 수정 후 결과
   
-```
+```console
 pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/cpp_basics/sensors$ g++ -std=c++17 -fsanitize=address -g *.cpp -o main
 pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/cpp_basics/sensors$ ./main
 ===== 다형성 Test =====
@@ -231,12 +231,11 @@ Lidar 소멸
 Sensor destructor
 Imu 소멸
 Sensor destructor
-
 ```
 
 ## 문제 3
 ### 1. /turtle1/pose 필드 구성: ___
-```
+```console
 x: 5.544444561004639
 y: 5.544444561004639
 theta: 0.0
@@ -251,9 +250,10 @@ angular_velocity: 0.0
 ```
 
 ### 2. ros2 topic hz /turtle_distance 출력: 평균 ___ Hz
-
+```console
 average rate: 10.000Hz
 min: 0.100s max: 0.100s std dev: 0.00014s window: 12
+```
 
 ### 3. 구독자 경고 로그 (터미널 출력)
 ```console
@@ -288,7 +288,7 @@ min: 0.100s max: 0.100s std dev: 0.00014s window: 12
 
 ### 1. colcon build 성공 출력
 
-```
+```console
 pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/ros2_ws/src/turtle_cpp$ colcon build --packages-select turtle_cpp
 Starting >>> turtle_cpp
 Finished <<< turtle_cpp [0.98s]                
@@ -300,7 +300,7 @@ Summary: 1 package finished [1.11s]
 ### 2. rclpy 발행에서 rclcpp 구독으로 이어진 로그
 
 - rclpy (Publisher)
-```
+```console
 (.venv) pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/ros2_ws$ ros2 run turtle_py distance_publisher
 [INFO] [1788408059.745286674] [distance_publisher]: Distance publisher started: 10.0 Hz
 [INFO] [1788408059.836585628] [distance_publisher]: [rclpy Publisher] Publishing distance: 0.00
@@ -315,7 +315,7 @@ Summary: 1 package finished [1.11s]
 ```
 
 - rclcpp (Subsciber)
-```
+```console
 pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/ros2_ws$ ros2 run turtle_cpp distance_subscriber
 [INFO] [1788408054.346263758] [distance_subscriber]: Distance subscriber started
 [INFO] [1788408059.836719236] [distance_subscriber]: [rclcpp Subscriber] Received distance: 0.00
@@ -353,7 +353,7 @@ pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/ros2_ws$ ros2 run turtle_c
 
 1. **노드 실행 여부 확인**
 
-   ``
+```console
    ros2 node list
    ```
 
@@ -361,7 +361,7 @@ pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/ros2_ws$ ros2 run turtle_c
 
 2. **토픽 존재 여부 확인**
 
-   ```
+```console
    ros2 topic list
    ```
 
@@ -369,7 +369,7 @@ pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/ros2_ws$ ros2 run turtle_c
 
 3. **Publisher / Subscriber 연결 확인**
 
-   ```
+```console
    ros2 topic info /turtle_distance
    ```
 
@@ -377,7 +377,7 @@ pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/ros2_ws$ ros2 run turtle_c
 
 4. **실제 메시지 수신 여부 확인**
 
-   ```
+```console
    ros2 topic echo /turtle_distance
    ```
 
@@ -385,7 +385,7 @@ pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/ros2_ws$ ros2 run turtle_c
 
 5. **발행 주기 확인**
 
-   ```
+```console
    ros2 topic hz /turtle_distance
    ```
 
@@ -394,7 +394,7 @@ pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/ros2_ws$ ros2 run turtle_c
 
 6. **원본 토픽 확인**
 
-   ```
+```console
    ros2 topic echo /turtle1/pose
    ```
 
@@ -402,7 +402,7 @@ pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/ros2_ws$ ros2 run turtle_c
 
 7. **노드 간 연결 구조 확인**
 
-   ```
+```console
    rqt_graph
    ```
 
@@ -426,7 +426,7 @@ pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/ros2_ws$ ros2 run turtle_c
 
 - pytest 통과 출력
 
-```
+```console
 (.venv) pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/ros2_ws/src/turtle_py/turtle_py$ pytest test_calculations.py -v
 ============================================================================================================ test session starts =============================================================================================================
 platform linux -- Python 3.10.12, pytest-8.4.2, pluggy-1.6.0 -- /home/pa3/.venv/bin/python
@@ -468,7 +468,7 @@ atan2를 이용해 현재 위치에서 목표 위치까지의 방향각을 올�
 
 ### 5. 함수를 틀리게 바꿨을 때 실패 출력
 
-```
+```console
 (.venv) pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1/Asain2/ros2_ws/src/turtle_py/turtle_py$ pytest test_calculations.py -v
 ============================================================================================================ test session starts =============================================================================================================
 platform linux -- Python 3.10.12, pytest-8.4.2, pluggy-1.6.0 -- /home/pa3/.venv/bin/python
@@ -510,7 +510,7 @@ ERROR test_calculations.py
 ### 6. 예외 처리·logging 동작 확인: ___
 
 - 잘못된 인수값 전달 시, 예외처리 후 정상동작  
-```
+```console
 (.venv) pa3@pa3-Legion-Pro-5-16IAX10:~$ ros2 run turtle_py distance_publisher --ros-args -p publish_rate:=0.0
 [WARN] [1788434104.079047413] [distance_publisher]: Invalid publish_rate: 0.0. publish_rate must be greater than 0. Using 10.0 Hz instead.
 [INFO] [1788434104.081087667] [distance_publisher]: Distance publisher started: 10.0 Hz
