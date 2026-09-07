@@ -256,7 +256,7 @@ average rate: 10.000Hz
 min: 0.100s max: 0.100s std dev: 0.00014s window: 12
 
 ### 3. 구독자 경고 로그 (터미널 출력)
-```
+```console
 [WARN] [1787907483.947893046] [distance_warning]: Distance warning! distance=7.84 > threshold=3.00
 [WARN] [1787907483.971045460] [distance_warning]: Distance warning! distance=7.84 > threshold=3.00
 [WARN] [1787907484.048103758] [distance_warning]: Distance warning! distance=7.84 > threshold=3.00
