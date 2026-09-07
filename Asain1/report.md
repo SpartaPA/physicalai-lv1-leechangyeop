@@ -93,7 +93,7 @@ Last login: Tue Aug 25 09:52:14 2026 from 127.0.0.1
 
 
 ## 3. 원격 단일 명령 실행과 scp 전송 출력
-```
+```console
 pa3@pa3-Legion-Pro-5-16IAX10:~$ ls
 Desktop  Documents  Downloads  Pictures  Practice  Public  ROS2_WS  SpartaPA  cpp  fake_sensors  git  snap  turtlebot3_ws
 
@@ -140,7 +140,7 @@ SUBSYSTEM=="block", KERNEL=="loop*", ATTR{loop/backing_file}=="/home/pa3/fake_se
 |+=|기존 값에 추가|
 
 ## 6. 순서를 바꿔 재연결한 뒤 ls -l /dev/robot_* 결과
-```
+```console
 pa3@pa3-Legion-Pro-5-16IAX10:~/fake_sensors$ sudo udevadm control --reload-rules
 
 pa3@pa3-Legion-Pro-5-16IAX10:~/fake_sensors$ sudo losetup -f --show imu.img
@@ -193,7 +193,7 @@ idVendor가 동일하여, 같은 객체로 인식할 수 있으므로, idProduct
 
 ## 3. 충돌이 난 파일과 줄: ___ — 충돌 표식의 뜻과 해결 방법
 
-```
+```console
 <<<<<<< feature/compute-layout
 - feature/compute-layout 브랜치에서 작업한 내용이 표시 됨
 =======
@@ -205,10 +205,10 @@ idVendor가 동일하여, 같은 객체로 인식할 수 있으므로, idProduct
 ```
 
 ## 4. merge 방식 이력 그래프 / rebase 방식 이력 그래프 (두 출력 비교)
-```
 
-충돌 해결후 merge
+-충돌 해결후 merge
 
+```console
 pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1$ git log --oneline --graph
 *   30a1ace (HEAD -> main) merge: resolve README conflict
 |\  
@@ -233,9 +233,11 @@ pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1$ git log --oneline --graph
 |/  
 * 42e992e feat: 로봇 스펙 업데이트
 * 09d3926 first commit
+```
 
-Rebase 후 커밋
+- Rebase 후 커밋
 
+```console
 pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1$ git log --oneline --graph
 * 875c6b7 (HEAD -> branch-rebase, main) test: new main change
 *   30a1ace merge: resolve README conflict
@@ -261,7 +263,6 @@ pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1$ git log --oneline --graph
 |/  
 * 42e992e feat: 로봇 스펙 업데이트
 * 09d3926 first commit
-
 ```
 
 
