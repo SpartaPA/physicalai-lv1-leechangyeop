@@ -61,8 +61,9 @@
 # 문제 2
 ## 1. 고른 접속 대상: localhost / 가상머신 중 ___ — 무비밀번호 접속 로그와 who·echo $SSH_CONNECTION 출력
 - 접속 대상                 :localhost
-- 접속 로그          
-```       
+- 접속 로그
+
+```console     
 pa3@pa3-Legion-Pro-5-16IAX10:~$ ssh pa3@localhost
 Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 6.8.0-136-generic x86_64)
 
@@ -150,7 +151,7 @@ Installing collected packages: pure-eval, ptyprocess, websocket-client, webencod
 ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
 generate-parameter-library-py 0.7.5 requires typeguard, which is not installed.
 Successfully installed MarkupSafe-3.0.3 anyio-4.14.2 argon2-cffi-25.1.0 argon2-cffi-bindings-26.1.0 arrow-1.4.0 asttokens-3.0.2 async-lru-2.3.0 attrs-26.1.0 babel-2.18.0 beautifulsoup4-4.15.0 bleach-6.4.0 certifi-2026.7.22 cffi-2.1.1 charset_normalizer-3.5.1 comm-0.2.3 contourpy-1.3.2 cycler-0.12.1 debugpy-1.8.21 decorator-5.3.1 defusedxml-0.7.1 exceptiongroup-1.3.1 executing-2.2.1 fastjsonschema-2.22.2 fonttools-4.63.0 fqdn-1.5.1 h11-0.16.0 httpcore-1.0.9 httpx-0.28.1 idna-3.19 iniconfig-2.3.0 ipykernel-7.3.0 ipython-8.39.0 isoduration-20.11.0 jedi-0.20.0 jinja2-3.1.6 json5-0.15.0 jsonpointer-3.1.1 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 jupyter-builder-1.2.2 jupyter-client-8.9.1 jupyter-core-5.9.1 jupyter-events-0.12.1 jupyter-lsp-2.3.1 jupyter-server-2.20.0 jupyter-serve
-
+```console
 pa3@pa3-Legion-Pro-5-16IAX10:~/fake_sensors$ sudo udevadm trigger --action=add
 
 pa3@pa3-Legion-Pro-5-16IAX10:~/fake_sensors$ ls -l /dev/robot_*
@@ -206,7 +207,7 @@ idVendor가 동일하여, 같은 객체로 인식할 수 있으므로, idProduct
 
 ## 4. merge 방식 이력 그래프 / rebase 방식 이력 그래프 (두 출력 비교)
 
--충돌 해결후 merge
+- 충돌 해결후 merge
 
 ```console
 pa3@pa3-Legion-Pro-5-16IAX10:~/git/Assignment1$ git log --oneline --graph
